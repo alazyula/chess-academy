@@ -1,4 +1,5 @@
 
+import Link from "next/link"
 import ThemeSwitch from "./ThemeSwitch"
 export default function NavBar() {
 
@@ -19,7 +20,8 @@ export default function NavBar() {
                         <p>Hakkımızda</p>
                         <p>Eğitimler</p>
                         <p>Blog</p>
-                        <p>iletişim</p>
+                        <Link href="/contact"> İletişim</Link>
+                        
 
                     </div>
 
