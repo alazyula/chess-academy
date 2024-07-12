@@ -19,7 +19,7 @@ export default function NavBar() {
 
                         <p>Hakkımızda</p>
                         <p>Eğitimler</p>
-                        <p>Blog</p>
+                        <Link href="/blog">Blog</Link>
                         <Link href="/contact"> İletişim</Link>
                         
 
