@@ -1,9 +1,9 @@
 import firebase from "firebase/compat/app";
-export interface Post {
+
+export interface CommentModel {
     id: string;
-    title: string;
+    postId: string;
+    author: string;
     content: string;
-    tags: string[];
     createdAt: firebase.firestore.Timestamp;
   }
-  

@@ -13,20 +13,9 @@ interface RequestBody {
 }
 
 export async function POST(req: NextRequest) {
-  const { name, email, message, token }: RequestBody = await req.json();
+  const { name, email, message}: RequestBody = await req.json();
 
-  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-  const verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`;
   
-  try {
-    const response = await axios.post(verificationUrl);
-    if (!response.data.success) {
-      return NextResponse.json({ error: 'reCAPTCHA verification failed' }, { status: 400 });
-    }
-  } catch (error) {
-    console.error('reCAPTCHA verification error:', error);
-    return NextResponse.json({ error: 'reCAPTCHA verification error' }, { status: 500 });
-  }
 
   const transporter = nodemailer.createTransport({
     service: 'gmail',

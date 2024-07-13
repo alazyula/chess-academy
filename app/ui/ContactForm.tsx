@@ -17,10 +17,19 @@ export default function ContactForm() {
       return;
     }
 
-    const token = await executeRecaptcha('submit');
+   
     
     try {
-      await axios.post('/api/send-email', { name, email, message, token });
+      const recaptchaToken = await executeRecaptcha('submit');
+      const { data } = await axios.post('/api/verify-recaptcha', { token: recaptchaToken });
+  
+      if (!data.success) {
+        alert('reCAPTCHA verification failed');
+        return;
+      }
+
+
+      await axios.post('/api/send-email', { name, email, message });
       alert('Email sent successfully');
     } catch (error) {
       console.error('Error sending email:', error);
@@ -29,18 +38,20 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
+   <div className='flex flex-col content-center justify-center '>
+     <form onSubmit={handleSubmit} className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
       <div className="mb-4 flex flex-col w-500">
-        <label htmlFor="form-name">Name</label>
+        <label htmlFor="form-name">İsim</label>
         <input id="form-name" autoComplete="name" maxLength={50} name="name" onChange={(e) => setName(e.target.value)} className="text-black" />
 
         <label htmlFor="form-email">Email</label>
         <input id="form-email" required autoComplete="email" maxLength={80} name="email" type="email" onChange={(e) => setEmail(e.target.value)} className="text-black" />
 
-        <label htmlFor="form-message">Message</label>
+        <label htmlFor="form-message">Mesaj</label>
         <textarea id="form-message" required name="message" rows={5} onChange={(e) => setMessage(e.target.value)} className="text-black" />
       </div>
-      <button className="rounded bg-sky-400" type="submit">Send</button>
+      <button className="rounded bg-sky-400" type="submit">Gönder</button>
     </form>
+   </div>
   );
 }
