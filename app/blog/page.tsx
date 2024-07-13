@@ -4,6 +4,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '@/firebase';
 import { Post } from '../model/Post';
 import BlogList from '../ui/BlogList';
+import NavBar from '../ui/NavBar';
 
 
 const BlogPage = () => {
@@ -22,11 +23,18 @@ const BlogPage = () => {
   }, []);
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold">Blog</h1>
+
+    <div className="bg-slate-300 dark:bg-slate-700">
+
+    <NavBar />
+   <main className="flex min-h-screen flex-col items-center justify-between bg-slate-300 dark:bg-slate-700 text-slate-700 dark:text-slate-200">
+   <BlogList posts={posts} />
       
-      <BlogList posts={posts} />
-    </div>
+</main>
+
+</div>
+
+
   );
 };
 

@@ -33,7 +33,7 @@ const CommentsList = ({ postId }: CommentsListProps) => {
   }, [postId]);
 
   return (
-    <div className="mt-4">
+    <div className="mt-4 flex flex-col">
       <h2 className="text-lg font-medium">Yorumlar</h2>
       {comments.length === 0 ? (
         <p>Yorum yok T_T {comments.length}  .</p>

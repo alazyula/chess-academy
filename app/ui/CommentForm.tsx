@@ -26,7 +26,7 @@ const CommentForm = ({ postId }: CommentFormProps) => {
 
         const recaptchaToken = await executeRecaptcha('submit_comment');
 
-        // Verify reCAPTCHA token
+        
         const { data } = await axios.post('/api/verify-recaptcha', { token: recaptchaToken });
   
         if (!data.success) {
@@ -50,8 +50,8 @@ const CommentForm = ({ postId }: CommentFormProps) => {
 
   return (
     <form onSubmit={handleSubmit} className="mt-4">
-      <div>
-        <label htmlFor="author" className="block text-sm font-medium text-gray-700">
+      <div className='text-black dark:text-white'>
+        <label htmlFor="author" className="block text-sm font-medium text-gray-700 dark:text-white">
           İsim
         </label>
         <input
@@ -64,7 +64,7 @@ const CommentForm = ({ postId }: CommentFormProps) => {
         />
       </div>
       <div className="mt-4">
-        <label htmlFor="content" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="content" className="block text-sm font-medium text-gray-700 dark:text-white">
           Yorum
         </label>
         <textarea

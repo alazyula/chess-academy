@@ -11,13 +11,15 @@ export default function Contact() {
   const [message,setMessage] = useState('')
 
     return (
-        <main className="flex min-h-screen flex-col items-center" >
-          <NavBar/>
-            <div className="flex container bg-slate-300 dark:bg-slate-700">
+      <div className="bg-slate-300 dark:bg-slate-700">
 
-                <ContactForm/>
+    <NavBar />
+   <main className="flex min-h-screen flex-col items-center justify-between bg-slate-300 dark:bg-slate-700 text-slate-700 dark:text-slate-200">
+      
+      <ContactForm/>
+      
+</main>
 
-            </div>
-        </main>
+</div>
     )
 }
