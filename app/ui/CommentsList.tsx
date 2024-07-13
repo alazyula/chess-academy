@@ -38,24 +38,24 @@ const CommentsList = ({ postId }: CommentsListProps) => {
   }, [postId]);
 
   return (
-    <div className="mt-4 flex flex-col">
-      <h2 className="text-lg font-medium">Yorumlar</h2>
-      {comments.length === 0 ? (
-        <p>Yorum yok T_T {comments.length}  .</p>
-      ) : (
-        <ul>
-          {comments.map((comment) => (
-            <li key={comment.id} className="mt-2 border-b border-gray-200 pb-2">
-              <p className="text-sm font-medium text-gray-900">{comment.author}</p>
-              <p className="text-sm text-gray-700">{comment.content}</p>
-              <p className="text-xs text-gray-500">
-                {(comment.createdAt.toDate()).toLocaleString()}
-              </p>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <div className="mt-8 p-6  shadow rounded-lg  dark:text-gray-300 w-full sm:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto">
+    <h2 className="text-xl text-center font-semibold mb-4">Yorumlar</h2>
+    {comments.length === 0 ? (
+      <p className="text-gray-600 dark:text-gray-400">No comments yet.</p>
+    ) : (
+      <ul className="space-y-4">
+        {comments.map((comment) => (
+          <li key={comment.id} className="p-4 bg-gray-50 rounded-lg shadow-sm dark:bg-gray-700">
+            <p className="text-lg font-medium text-gray-900 dark:text-white">{comment.author}</p>
+            <p className="mt-2 text-gray-700 dark:text-gray-300">{comment.content}</p>
+            <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
+              {(comment.createdAt as Timestamp).toDate().toLocaleString()}
+            </p>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
   );
 };
 
