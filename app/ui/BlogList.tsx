@@ -9,8 +9,11 @@ const BlogList = ({ posts }: BlogListProps) => {
   return (
     <div className="space-y-4">
       {posts.map((post) => (
-    <Link href={`/blog/${post.id}`}>    <div key={post.id} className="p-4 border rounded shadow">
+        <div key={post.id} className="p-4 border rounded shadow">
+
+<Link href={`/blog/${post.id}`}> 
     <h2 className="text-xl font-bold">{post.title}</h2>
+</Link>
     <p>{post.content}</p>
     <div className="mt-2 space-x-2">
       {post.tags.map((tag, index) => (
@@ -23,7 +26,7 @@ const BlogList = ({ posts }: BlogListProps) => {
       ))}
     </div>
     
-  </div></Link>
+  </div>
       ))}
     </div>
   );
