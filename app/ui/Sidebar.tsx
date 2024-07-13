@@ -14,8 +14,8 @@ const Sidebar = () => {
       <nav className="flex-grow px-4 mt-4">
         <ul>
           <li className="mb-2">
-            <Link href="/admin">
-              Panel
+            <Link href="/admin/contactInfo">
+              İletişim Bilgilerini Güncelle
             </Link>
           </li>
           <li className="mb-2">
