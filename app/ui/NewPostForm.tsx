@@ -32,58 +32,60 @@ const NewPostForm = () => {
   };
 
   return (
-   <div className='flex flex-col text-center justify-center bg-slate-300 dark:bg-slate-700 w-1/2  '>
-     <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <label className="block text-sm font-medium text-gray-700">Title</label>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
-        />
-      </div>
-      <div>
-        <label className="block text-sm font-medium text-gray-700">Content</label>
-        <textarea
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
-        />
-      </div>
-      <div>
-        <label className="block text-sm font-medium text-gray-700">Tags</label>
-        <div className="flex items-center">
+    <div className="flex flex-col container w-full items-center justify-center min-h-screen py-8">
+      <h2>Blog Yaz</h2>
+      <form onSubmit={handleSubmit} className="space-y-6 w-full max-w-lg p-6 rounded-md shadow-md">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">Başlık</label>
           <input
             type="text"
-            value={tagInput}
-            onChange={(e) => setTagInput(e.target.value)}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
           />
-          <button
-            type="button"
-            onClick={addTag}
-            className="ml-2 px-4 py-2 bg-blue-500 text-white rounded"
-          >
-            Add Tag
-          </button>
         </div>
-        <div className="mt-2 space-x-2">
-          {tags.map((tag, index) => (
-            <span
-              key={index}
-              className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"
+        <div>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">İçerik</label>
+          <textarea
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            rows={10}
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">Etiketler</label>
+          <div className="flex flex-col space-y-2">
+            <input
+              type="text"
+              value={tagInput}
+              onChange={(e) => setTagInput(e.target.value)}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            />
+            <button
+              type="button"
+              onClick={addTag}
+              className="px-4 py-2 bg-blue-500 text-white rounded-md self-end"
             >
-              {tag}
-            </span>
-          ))}
+              Etiket Ekle
+            </button>
+          </div>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {tags.map((tag, index) => (
+              <span
+                key={index}
+                className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:bg-gray-700 dark:text-gray-200"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
-      <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded">
-        Submit
-      </button>
-    </form>
-   </div>
+        <button type="submit" className="w-full py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+          Gönder
+        </button>
+      </form>
+    </div>
   );
 };
 

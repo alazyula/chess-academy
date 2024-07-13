@@ -1,6 +1,6 @@
 // components/CommentsList.tsx
 import { useEffect, useState } from 'react';
-import { collection, query, orderBy, where, onSnapshot } from 'firebase/firestore';
+import { collection, query, orderBy, where, onSnapshot, Timestamp } from 'firebase/firestore';
 import { db } from '@/firebase';
 import { CommentModel } from '../model/CommentModel';
 
@@ -25,7 +25,12 @@ const CommentsList = ({ postId }: CommentsListProps) => {
           id: doc.id,
           ...doc.data(),
       })) as unknown as CommentModel[];
+        commentsData.map((comment)=> {
+            comment.createdAt = comment.createdAt as Timestamp
+           
+        })
       console.log("Comments fetched:", commentsData);
+     
       setComments(commentsData);
     });
 
@@ -44,7 +49,7 @@ const CommentsList = ({ postId }: CommentsListProps) => {
               <p className="text-sm font-medium text-gray-900">{comment.author}</p>
               <p className="text-sm text-gray-700">{comment.content}</p>
               <p className="text-xs text-gray-500">
-                {new Date(comment.createdAt.toDate()).toLocaleString()}
+                {(comment.createdAt.toDate()).toLocaleString()}
               </p>
             </li>
           ))}

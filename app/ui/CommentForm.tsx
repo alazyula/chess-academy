@@ -3,6 +3,7 @@ import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '@/firebase';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import axios from 'axios';
+import { Timestamp } from 'firebase/firestore';
 
 interface CommentFormProps {
   postId: string;
@@ -34,12 +35,13 @@ const CommentForm = ({ postId }: CommentFormProps) => {
           return;
         }
 
-
+        const tempDate = Timestamp.now()
+        console.log(tempDate)
       await addDoc(collection(db, 'comments'), {
         postId,
         author,
         content,
-        createdAt: serverTimestamp(),
+        createdAt: tempDate,
       });
       setAuthor('');
       setContent('');
