@@ -22,7 +22,7 @@ const BlogList = ({ posts }: BlogListProps) => {
         </span>
       ))}
     </div>
-    <p className="text-sm text-gray-500"> {post.createdAt}</p>
+    
   </div></Link>
       ))}
     </div>
