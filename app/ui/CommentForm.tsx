@@ -62,7 +62,7 @@ const CommentForm = ({ postId }: CommentFormProps) => {
         type="text"
         value={author}
         onChange={(e) => setAuthor(e.target.value)}
-        className="mt-1 block w-full lg:w-1/2 mx-auto rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+        className="mt-1 px-2 block w-full lg:w-1/2 mx-auto rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
         required
       />
     </div>
@@ -75,7 +75,7 @@ const CommentForm = ({ postId }: CommentFormProps) => {
         value={content}
         onChange={(e) => setContent(e.target.value)}
         rows={4}
-        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+        className="mt-1 block w-full px-2 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
         required
       />
     </div>
