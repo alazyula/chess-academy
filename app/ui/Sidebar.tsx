@@ -33,6 +33,11 @@ const Sidebar = () => {
               Slayt Konrolleri
             </Link>
           </li>
+          <li className="mb-2">
+            <Link href="/admin/logo">
+              Logo Değiştir
+            </Link>
+          </li>
         </ul>
       </nav>
       <div className="px-4 py-6">

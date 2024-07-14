@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import ThemeSwitch from './ThemeSwitch';
+import Logo from './Logo';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,7 @@ const NavBar = () => {
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <p>Logo</p>
+            <Link href="/"><Logo/></Link>
           </div>
           <div className="hidden md:flex items-center space-x-10">
             <p>Hakkımızda</p>

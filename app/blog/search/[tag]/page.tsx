@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Post } from '@/app/model/Post';
 import BlogList from '@/app/ui/BlogList';
 import NavBar from '@/app/ui/NavBar';
-import getBlogPosts from '@/app/utils/Firestore/getBlogPosts';
+import getBlogPosts from '@/app/utils/Firestore/BlogPosts/getBlogPosts';
 import { usePathname } from 'next/navigation';
 
 

@@ -1,7 +1,7 @@
 import { db } from "@/firebase";
 import { Post } from "@/app/model/Post";
-import getAllBlogPosts from "./BlogPosts/getAllBlogPosts";
-import { getBlogPostsByTags } from "./BlogPosts/getBlogPostsByTags";
+import getAllBlogPosts from "./getAllBlogPosts";
+import { getBlogPostsByTags } from "./getBlogPostsByTags";
 export default async function getBlogPosts(key: String, tag?: String){
     console.log("debug 1")
     let result: Post[] | undefined

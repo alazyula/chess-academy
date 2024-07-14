@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Post } from '../model/Post';
 import BlogList from '../ui/BlogList';
 import NavBar from '../ui/NavBar';
-import getBlogPosts from '../utils/Firestore/getBlogPosts';
+import getBlogPosts from '../utils/Firestore/BlogPosts/getBlogPosts';
 
 
 const BlogPage = () => {
