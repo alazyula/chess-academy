@@ -4,13 +4,13 @@ import { Post } from '@/app/model/Post';
 import BlogList from '@/app/ui/BlogList';
 import NavBar from '@/app/ui/NavBar';
 import { getBlogPostsByTags } from '@/app/utils/Firestore/BlogPosts/getBlogPostsByTags';
-import { usePathname } from 'next/navigation';
+import useSingleUrlQueryParameter from '@/app/utils/helpers/useSingleUrlQueryParameter';
 
 
 const BlogPageTagSearch = () => {
   const [posts, setPosts] = useState<Post[]>([]);
-  const pathname = usePathname()
-  let id = pathname?.substring(pathname.lastIndexOf('/')+1)
+  
+  let id = useSingleUrlQueryParameter()
   let tag = decodeURIComponent(id as string);
 
   useEffect(() => {

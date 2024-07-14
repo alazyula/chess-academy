@@ -4,11 +4,11 @@ import PostComponent from "@/app/ui/PostComponent";
 import CommentsList from "@/app/ui/CommentsList";
 import CommentForm from "@/app/ui/CommentForm";
 
-import getSingleUrlQueryParameter from "@/app/utils/helpers/getSingleUrlQueryParameter";
+import useSingleUrlQueryParameter from "@/app/utils/helpers/useSingleUrlQueryParameter";
 function PostPage () {
   
   
-  const id = getSingleUrlQueryParameter()
+  const id = useSingleUrlQueryParameter()
   
   return (
     <div className="bg-slate-300 dark:bg-slate-700">
