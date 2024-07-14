@@ -3,11 +3,12 @@ import NavBar from "@/app/ui/NavBar";
 import PostComponent from "@/app/ui/PostComponent";
 import CommentsList from "@/app/ui/CommentsList";
 import CommentForm from "@/app/ui/CommentForm";
-import { usePathname } from "next/navigation";
+
+import getSingleUrlQueryParameter from "@/app/utils/helpers/getSingleUrlQueryParameter";
 function PostPage () {
   
-  const pathname = usePathname()
-  const id = pathname?.substring(pathname.lastIndexOf('/')+1)
+  
+  const id = getSingleUrlQueryParameter()
   
   return (
     <div className="bg-slate-300 dark:bg-slate-700">

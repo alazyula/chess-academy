@@ -1,14 +1,13 @@
 "use client"
-import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '@/firebase';
 import { Post } from '@/app/model/Post';
+import getSingleUrlQueryParameter from '../utils/helpers/getSingleUrlQueryParameter';
 
 function PostComponent () {
   
-  const pathname = usePathname()
-  const id = pathname?.substring(pathname.lastIndexOf('/')+1)
+  const id = getSingleUrlQueryParameter()
   const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
 

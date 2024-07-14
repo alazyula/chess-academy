@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Post } from '@/app/model/Post';
 import BlogList from '@/app/ui/BlogList';
 import NavBar from '@/app/ui/NavBar';
-import getBlogPosts from '@/app/utils/Firestore/BlogPosts/getBlogPosts';
+import { getBlogPostsByTags } from '@/app/utils/Firestore/BlogPosts/getBlogPostsByTags';
 import { usePathname } from 'next/navigation';
 
 
@@ -16,7 +16,7 @@ const BlogPageTagSearch = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const fetchedPosts: Post[] = await getBlogPosts("tag",tag!) as Post[];
+        const fetchedPosts: Post[] = await getBlogPostsByTags(tag!) as Post[];
         setPosts(fetchedPosts);
       }
       catch {

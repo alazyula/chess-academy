@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Post } from '../model/Post';
 import BlogList from '../ui/BlogList';
 import NavBar from '../ui/NavBar';
-import getBlogPosts from '../utils/Firestore/BlogPosts/getBlogPosts';
+import getAllBlogPosts from '../utils/Firestore/BlogPosts/getAllBlogPosts';
 
 
 const BlogPage = () => {
@@ -12,7 +12,7 @@ const BlogPage = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const fetchedPosts: Post[] = await getBlogPosts("all") as Post[];
+        const fetchedPosts: Post[] = await getAllBlogPosts() as Post[];
         setPosts(fetchedPosts);
       }
       catch {

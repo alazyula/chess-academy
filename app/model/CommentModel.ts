@@ -6,4 +6,5 @@ export interface CommentModel {
     author: string;
     content: string;
     createdAt: firebase.firestore.Timestamp;
+    rating: number;
   }
