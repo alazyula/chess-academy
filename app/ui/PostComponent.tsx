@@ -4,6 +4,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '@/firebase';
 import { Post } from '@/app/model/Post';
 import useSingleUrlQueryParameter from '../utils/helpers/useSingleUrlQueryParameter';
+import Link from 'next/link';
 
 function PostComponent () {
   
@@ -45,7 +46,7 @@ function PostComponent () {
   }
 
   return (
-    <div className="p-4  mt-12 container flex flex-col space-y-10 text-center justify-center bg-slate-300 dark:bg-slate-700 text-slate-700 dark:text-slate-200">
+    <div className="p-4 bg-opacity-50 mt-12 container flex flex-col space-y-10 text-center justify-center bg-slate-100 dark:bg-slate-600 rounded-md text-slate-700 dark:text-slate-200">
       <h1 className="text-2xl font-bold">{post.title}</h1>
       <p>{post.content}</p>
       <div className="mt-2 space-x-2">
@@ -54,7 +55,7 @@ function PostComponent () {
             key={index}
             className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"
           >
-            {tag}
+             <Link href={`/blog/search/${tag}`}>  {tag}</Link>
           </span>
         ))}
       </div>

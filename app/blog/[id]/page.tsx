@@ -14,7 +14,7 @@ function PostPage () {
     <div className="bg-slate-300 dark:bg-slate-700">
 
     <NavBar />
-   <main className="flex min-h-screen flex-col items-center justify-between bg-slate-300 dark:bg-slate-700 text-slate-700 dark:text-slate-200">
+   <main className="flex min-h-screen flex-col items-center justify-between text-slate-700 dark:text-slate-200">
    <PostComponent/>
    <CommentForm postId={id as string} />
    <CommentsList postId={id as string} />

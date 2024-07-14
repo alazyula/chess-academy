@@ -3,6 +3,7 @@ import NavBar from "./ui/NavBar";
 import { FirstHomepageComponent } from "./ui/FirstHomepageComponent";
 import Carousel from "./ui/Carousel";
 import Footer from "./ui/Footer";
+import Hero from "./ui/Hero";
 export default function Home() {
   return (
 
@@ -11,7 +12,7 @@ export default function Home() {
         <NavBar />
        <main className="flex min-h-screen flex-col items-center justify-between bg-slate-300 dark:bg-slate-700 text-slate-700 dark:text-slate-200">
        <Carousel/>
-       <FirstHomepageComponent />
+       <Hero/>
     </main>
     
     <Footer/>
