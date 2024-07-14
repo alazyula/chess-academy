@@ -1,81 +1,66 @@
-'use client'
-import { useState } from 'react';
-function Carousel  ()  {
+"use client"
+import { useEffect, useState } from 'react';
+import { db } from '@/firebase';
+import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
+
+interface CarouselImage {
+  url: string;
+  navigateTo: string;
+  id: string;
+}
+
+const Carousel = () => {
+  const [images, setImages] = useState<CarouselImage[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const slides = [
-    {
-      image: 'https://via.placeholder.com/800x400?text=Slide+1',
-      title: 'Slide 1',
-      description: 'This is the first slide.'
-    },
-    {
-      image: 'https://via.placeholder.com/800x400?text=Slide+2',
-      title: 'Slide 2',
-      description: 'This is the second slide.'
-    },
-    {
-      image: 'https://via.placeholder.com/800x400?text=Slide+3',
-      title: 'Slide 3',
-      description: 'This is the third slide.'
-    }
-  ];
 
-  const prevSlide = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
+  useEffect(() => {
+    const fetchImages = async () => {
+      const imageQuery = query(collection(db, 'carouselImages'), orderBy('createdAt', 'desc'), limit(5));
+      const querySnapshot = await getDocs(imageQuery);
+      const imageUrls = querySnapshot.docs.map((doc) => ({
+        url: doc.data().url,
+        navigateTo: doc.data().navigateTo,
+        id: doc.id,
+      }));
+      setImages(imageUrls.reverse());
+    };
+
+    fetchImages();
+  }, []);
+
+  const nextImage = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
-  const nextSlide = () => {
-    const isLastSlide = currentIndex === slides.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
+  const prevImage = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
+
+  if (images.length === 0) return <p>Loading...</p>;
 
   return (
-    <div className="relative max-w-screen-lg mx-auto">
-      <div className="overflow-hidden rounded-lg shadow-lg">
-        <div
-          className="flex transition-transform duration-500"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        >
-          {slides.map((slide, index) => (
-            <div key={index} className="min-w-full">
-              <img src={slide.image} alt={slide.title} className="w-full" />
-              <div className="absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-50 p-4 text-white">
-                <h3 className="text-lg font-semibold">{slide.title}</h3>
-                <p className="text-sm">{slide.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <button
-        onClick={prevSlide}
-        className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full"
-      >
-        &larr;
-      </button>
-
-      <button
-        onClick={nextSlide}
-        className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full"
-      >
-        &rarr;
-      </button>
-
-      <div className="flex justify-center mt-4">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-3 h-3 mx-1 rounded-full ${
-              index === currentIndex ? 'bg-gray-800' : 'bg-gray-300'
-            }`}
+    <div className="relative w-full max-w-screen-lg mx-auto mt-12">
+      <div className="overflow-hidden relative h-64 sm:h-80 lg:h-96">
+        <a href={images[currentIndex].navigateTo} target="_blank" rel="noopener noreferrer">
+          <img
+            src={images[currentIndex].url}
+            alt={`Carousel Image ${currentIndex + 1}`}
+            className="w-full h-full object-cover"
           />
-        ))}
+        </a>
       </div>
+      <button
+        onClick={prevImage}
+        className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
+      >
+        &#8592;
+      </button>
+      <button
+        onClick={nextImage}
+        className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
+      >
+        &#8594;
+      </button>
     </div>
   );
 };

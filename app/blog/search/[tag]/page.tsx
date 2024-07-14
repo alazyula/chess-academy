@@ -1,18 +1,22 @@
 'use client'
 import { useEffect, useState } from 'react';
-import { Post } from '../model/Post';
-import BlogList from '../ui/BlogList';
-import NavBar from '../ui/NavBar';
-import getBlogPosts from '../utils/Firestore/getBlogPosts';
+import { Post } from '@/app/model/Post';
+import BlogList from '@/app/ui/BlogList';
+import NavBar from '@/app/ui/NavBar';
+import getBlogPosts from '@/app/utils/Firestore/getBlogPosts';
+import { usePathname } from 'next/navigation';
 
 
-const BlogPage = () => {
+const BlogPageTagSearch = () => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const pathname = usePathname()
+  let id = pathname?.substring(pathname.lastIndexOf('/')+1)
+  let tag = decodeURIComponent(id as string);
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const fetchedPosts: Post[] = await getBlogPosts("all") as Post[];
+        const fetchedPosts: Post[] = await getBlogPosts("tag",tag!) as Post[];
         setPosts(fetchedPosts);
       }
       catch {
@@ -40,4 +44,4 @@ const BlogPage = () => {
   );
 };
 
-export default BlogPage;
+export default BlogPageTagSearch;

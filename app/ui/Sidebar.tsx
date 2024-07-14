@@ -28,6 +28,11 @@ const Sidebar = () => {
               Blog Yaz
             </Link>
           </li>
+          <li className="mb-2">
+            <Link href="/admin/carousel">
+              Slayt Konrolleri
+            </Link>
+          </li>
         </ul>
       </nav>
       <div className="px-4 py-6">

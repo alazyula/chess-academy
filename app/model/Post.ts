@@ -5,5 +5,6 @@ export interface Post {
     content: string;
     tags: string[];
     createdAt: firebase.firestore.Timestamp;
+    rating: number;
   }
   
