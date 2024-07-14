@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Post } from '../model/Post';
+import { useSession } from 'next-auth/react';
+import { deleteBlog } from '../utils/Firestore/BlogPosts/deleteBlog';
 
 interface BlogListProps {
   posts: Post[];
@@ -9,7 +11,8 @@ interface BlogListProps {
 const BlogList = ({ posts }: BlogListProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredPosts, setFilteredPosts] = useState<Post[]>(posts);
-
+  const { data: session, status } = useSession();
+  console.log(session)
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value.toLowerCase();
     setSearchQuery(query);
@@ -38,6 +41,14 @@ const BlogList = ({ posts }: BlogListProps) => {
               <Link href={`/blog/${post.id}`}>
                 <h2 className="text-xl font-bold cursor-pointer">{post.title}</h2>
               </Link>
+              
+              {session ?(
+                  <button onClick={()=>{deleteBlog(post.id)}}> Sil</button>
+
+              ): (<>
+              </>)}
+
+
               <div className="mt-2 space-x-2">
                 {post.tags.map((tag, index) => (
                   <span
