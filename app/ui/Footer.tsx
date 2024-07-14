@@ -30,15 +30,15 @@ const Footer = () => {
       <div className="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-lg font-semibold mb-2">Address</h3>
+            <h3 className="text-lg font-semibold mb-2">Adres</h3>
             <p>{footerData.address}</p>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-2">Telephone</h3>
+            <h3 className="text-lg font-semibold mb-2">Telefon</h3>
             <p>{footerData.telephone}</p>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-2">Email</h3>
+            <h3 className="text-lg font-semibold mb-2">Eposta</h3>
             <p>{footerData.email}</p>
           </div>
         </div>
