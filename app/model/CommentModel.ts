@@ -1,6 +1,6 @@
 import firebase from "firebase/compat/app";
 
-export interface CommentModel {
+export type CommentModel = {
     id: string;
     postId: string;
     author: string;

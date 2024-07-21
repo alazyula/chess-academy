@@ -1,8 +1,8 @@
 'use client'
 import { useEffect, useState } from 'react';
 import { Post } from '@/app/model/Post';
-import BlogList from '@/app/ui/BlogList';
-import NavBar from '@/app/ui/NavBar';
+import BlogList from '@/app/ui/Blog/BlogList';
+import NavBar from '@/app/ui/Navbar/NavBar';
 import { getBlogPostsByTags } from '@/app/utils/Firestore/BlogPosts/getBlogPostsByTags';
 import useSingleUrlQueryParameter from '@/app/utils/helpers/useSingleUrlQueryParameter';
 

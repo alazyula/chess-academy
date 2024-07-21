@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import { Post } from '../model/Post';
+import { Post } from '@/app/model/Post';
 import { useSession } from 'next-auth/react';
-import { deleteBlog } from '../utils/Firestore/BlogPosts/deleteBlog';
+import { deleteBlog } from '@/app/utils/Firestore/BlogPosts/deleteBlog';
 
 interface BlogListProps {
   posts: Post[];

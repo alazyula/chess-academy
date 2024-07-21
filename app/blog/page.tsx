@@ -1,8 +1,8 @@
 'use client'
 import { useEffect, useState } from 'react';
 import { Post } from '../model/Post';
-import BlogList from '../ui/BlogList';
-import NavBar from '../ui/NavBar';
+import BlogList from '../ui/Blog/BlogList';
+import NavBar from '../ui/Navbar/NavBar';
 import getAllBlogPosts from '../utils/Firestore/BlogPosts/getAllBlogPosts';
 
 

@@ -1,8 +1,8 @@
 "use client"
-import NavBar from "@/app/ui/NavBar";
-import PostComponent from "@/app/ui/PostComponent";
-import CommentsList from "@/app/ui/CommentsList";
-import CommentForm from "@/app/ui/CommentForm";
+import NavBar from "@/app/ui/Navbar/NavBar";
+import PostComponent from "@/app/ui/Blog/PostComponent";
+import CommentsList from "@/app/ui/Blog/CommentsList";
+import CommentForm from "@/app/ui/Blog/CommentForm";
 
 import useSingleUrlQueryParameter from "@/app/utils/helpers/useSingleUrlQueryParameter";
 function PostPage () {

@@ -1,6 +1,6 @@
 "use client"
 import Link from 'next/link';
-import ThemeSwitch from './ThemeSwitch';
+import ThemeSwitch from '../Navbar/ThemeSwitch';
 import { signOut } from 'next-auth/react';
 
 const Sidebar = () => {

@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import { getHeroContent } from '../utils/Firestore/Hero/getHeroContent';
+import { getHeroContent } from '../../utils/Firestore/Hero/getHeroContent';
 
 const Hero = () => {
   const [content, setContent] = useState({

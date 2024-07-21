@@ -1,8 +1,8 @@
 "use client"
 import  { useState } from 'react';
-import { updateHeroContent } from '../utils/Firestore/Hero/updateHeroContent';
-import { getHeroContent } from '../utils/Firestore/Hero/getHeroContent';
-import { uploadImage } from '../utils/Storage/ImageUpload';
+import { updateHeroContent } from '@/app/utils/Firestore/Hero/updateHeroContent';
+import { getHeroContent } from '../../utils/Firestore/Hero/getHeroContent';
+import { uploadImage } from '../../utils/Storage/ImageUpload';
 const HeroForm = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');

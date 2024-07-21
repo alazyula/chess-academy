@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '@/firebase';
 import { Post } from '@/app/model/Post';
-import useSingleUrlQueryParameter from '../utils/helpers/useSingleUrlQueryParameter';
+import useSingleUrlQueryParameter from '@/app/utils/helpers/useSingleUrlQueryParameter';
 import Link from 'next/link';
 
 function PostComponent () {

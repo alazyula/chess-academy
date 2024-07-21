@@ -1,4 +1,4 @@
-import UpdateLogoForm from "@/app/ui/UpdateLogoForm";
+import UpdateLogoForm from "@/app/ui/Admin/UpdateLogoForm"
 
 export default function UpdateLogoPage() {
     return (

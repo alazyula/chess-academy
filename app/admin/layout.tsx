@@ -1,4 +1,4 @@
-import Sidebar from "../ui/Sidebar";
+import Sidebar from "../ui/Admin/Sidebar";
 
  
 export default function Layout({ children }: { children: React.ReactNode }) {

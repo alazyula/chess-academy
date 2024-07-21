@@ -36,7 +36,7 @@ const Carousel = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
 
-  if (images.length === 0) return <p>Loading...</p>;
+  if (images.length === 0) return <>   </>;
 
   return (
     <div className="relative w-full max-w-screen-lg mx-auto mt-12">

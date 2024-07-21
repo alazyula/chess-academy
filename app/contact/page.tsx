@@ -1,8 +1,8 @@
 "use client"
-import NavBar from "../ui/NavBar";
+import NavBar from "../ui/Navbar/NavBar";
 import Link from "next/link"
 import { useState } from "react";
-import ContactForm from "../ui/ContactForm";
+import ContactForm from "../ui/Contact/ContactForm";
 
 export default function Contact() {
 
