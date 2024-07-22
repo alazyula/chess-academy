@@ -1,6 +1,5 @@
 import Image from "next/image";
 import NavBar from "./ui/Navbar/NavBar";
-import { FirstHomepageComponent } from "./ui/FirstHomepageComponent";
 import Carousel from "./ui/Homepage/Carousel";
 import Footer from "./ui/Footer";
 import Hero from "./ui/Homepage/Hero";

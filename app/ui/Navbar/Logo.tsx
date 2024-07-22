@@ -18,10 +18,10 @@ const Logo = () => {
           const url = await getDownloadURL(logoRef);
           setLogoUrl(url);
         } else {
-          console.log('No such document!');
+          console.log('Dosya Bulunamadı');
         }
       } catch (error) {
-        console.error('Error fetching logo:', error);
+        console.error('Hata: Logo Bulunamadı', error);
       }
     };
 
@@ -29,7 +29,7 @@ const Logo = () => {
   }, []);
 
   if (!logoUrl) {
-    return <p>Loading...</p>;
+    return <p>Yükleniyor</p>;
   }
 
   return <img src={logoUrl} alt="Logo" className="h-8 w-auto" />;

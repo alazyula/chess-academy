@@ -1,4 +1,4 @@
- export function FirstHomepageComponent () 
+ export function AboutComponent () 
  {
 
     return (

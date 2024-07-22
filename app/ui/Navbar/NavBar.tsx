@@ -10,9 +10,9 @@ interface Course {
 }
 
 const courses: Course[] = [
-  { name: "Course 1", href: "/course-1" },
-  { name: "Course 2", href: "/course-2" },
-  { name: "Course 3", href: "/course-3" }
+  { name: "Etüd", href: "/course-1" },
+  { name: "Hafta Sonu Kursu", href: "/course-2" },
+  { name: "Yaz Okulu", href: "/course-3" }
 ];
 
 interface DropdownProps {
@@ -43,6 +43,7 @@ const NavBar = () => {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+    setMobileDropdownOpen(false)
   };
 
   const handleMouseEnter = () => {
@@ -69,7 +70,7 @@ const NavBar = () => {
   const handleMouseLeaveDropdown = () => {
     dropdownTimeoutRef.current = setTimeout(() => {
       setDropdownOpen(false);
-    }, 250);
+    }, 100);
   };
 
   const toggleMobileDropdown = () => {
@@ -85,14 +86,14 @@ const NavBar = () => {
   }, []);
 
   return (
-    <nav className="bg-slate-200 dark:bg-slate-600 dark:text-slate-300 relative z-50">
+    <nav className="bg-slate-200 dark:bg-slate-600 dark:text-slate-300 relative z-50 sticky top-0">
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/"><Logo /></Link>
           </div>
           <div className="hidden md:flex items-center space-x-10">
-            <p>Hakkımızda</p>
+            <Link href="/about"> Hakkımızda</Link>
             <div 
               className="relative"
               onMouseEnter={handleMouseEnter} 

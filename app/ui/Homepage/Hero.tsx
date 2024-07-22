@@ -8,19 +8,27 @@ const Hero = () => {
     description: '',
     backgroundImageUrl: ''
   });
-
+  const [loading,setLoading] = useState(false);
   useEffect(() => {
+    
     async function getContent() {
+      setLoading(true)
       const heroContent = await getHeroContent();
       if (heroContent) {
         setContent(heroContent);
         console.log(content)
       }
+      setLoading(false)
     }
 
     getContent();
   }, []);
-
+  if(loading){
+    return(
+      <>
+      </>
+    )
+  }
   return (
     <div className="relative mt-12 flex flex-col h-screen bg-cover bg-center rounded" >
       <div className="absolute inset-0 bg-black opacity-25"></div>
